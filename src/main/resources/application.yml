@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: academia-jedi
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+info:
+  title: "API Academia Jedi"
+  description: "Sistema de gestión de maestros y padawans de la Academia Jedi"
+  version: "1.0.0"
