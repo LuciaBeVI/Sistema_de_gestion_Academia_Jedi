@@ -1,12 +1,13 @@
 package com.academiajedi.dto;
 
 import jakarta.validation.constraints.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class PadawanDTO {
 
@@ -18,5 +19,5 @@ public class PadawanDTO {
     private String rango;
 
     @Min(value = 10, message = "La edad mínima es 10")
-    private int edad;
+    private Integer edad;
 }

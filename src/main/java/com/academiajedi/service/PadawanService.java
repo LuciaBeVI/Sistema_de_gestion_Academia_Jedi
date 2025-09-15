@@ -35,7 +35,7 @@ public class PadawanService {
                 .orElse(0L) + 1L;
 
         Padawan p = PadawanFactory.createPadawan(newId, dto.getNombre(), dto.getRango(), dto.getEdad());
-        padawanRepo.save(p); // <- no devuelve nada
+        padawanRepo.save(p);
         return p;
     }
 
@@ -75,9 +75,5 @@ public class PadawanService {
         return padawanRepo.findAll().stream()
                 .filter(p -> p.getRango() != null && p.getRango().equalsIgnoreCase(rango))
                 .collect(Collectors.toList());
-    }
-
-    public void addInitialData(List<Padawan> iniciales) {
-        iniciales.forEach(padawanRepo::save);
     }
 }

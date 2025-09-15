@@ -4,7 +4,6 @@ import com.academiajedi.dto.PadawanDTO;
 import com.academiajedi.entity.Padawan;
 import com.academiajedi.service.PadawanService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,7 +48,7 @@ public class PadawanController {
     @ApiResponse(responseCode = "400", description = "Datos inválidos")
     @PostMapping
     public ResponseEntity<Padawan> createPadawan(
-            @Valid @RequestBody PadawanDTO dto) {
+            @Valid @org.springframework.web.bind.annotation.RequestBody PadawanDTO dto) {
 
         Padawan creado = service.createPadawan(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(creado);
@@ -59,7 +58,10 @@ public class PadawanController {
     @ApiResponse(responseCode = "200", description = "Padawan actualizado")
     @ApiResponse(responseCode = "404", description = "Padawan no encontrado")
     @PutMapping("/{id}")
-    public ResponseEntity<Padawan> updatePadawan(@PathVariable Long id, @Valid @RequestBody PadawanDTO dto) {
+    public ResponseEntity<Padawan> updatePadawan(
+            @PathVariable Long id,
+            @Valid @org.springframework.web.bind.annotation.RequestBody PadawanDTO dto) {
+
         Padawan actualizado = service.updatePadawan(id, dto);
         return ResponseEntity.ok(actualizado);
     }
